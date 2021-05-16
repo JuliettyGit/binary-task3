@@ -1,7 +1,8 @@
 const { FighterRepository } = require('../repositories/fighterRepository');
 
 class FighterService {
-    getAll() {
+    getAll()
+    {
         const items = FighterRepository.getAll();
         if(!items)
         {
@@ -10,7 +11,8 @@ class FighterService {
         return items;
     }
 
-    getOne(id) {
+    getOne(id)
+    {
         const item = FighterRepository.getOne({ id });
         if(!item)
         {
@@ -19,7 +21,8 @@ class FighterService {
         return item;
     }
 
-    create(fighter){
+    create(fighter)
+    {
         const item = FighterRepository.create(fighter);
         if(!item){
             throw Error('There are some problems with fighter creation.');
@@ -27,7 +30,8 @@ class FighterService {
         return item;
     }
 
-    update(id, fighter){
+    update(id, fighter)
+    {
         const item = FighterRepository.update(id, fighter);
         if(!item.id)
         {
@@ -36,7 +40,8 @@ class FighterService {
         return item;
     }
 
-    delete(id){
+    delete(id)
+    {
         const item = FighterRepository.delete(id);
         if(!item.length)
         {
@@ -45,7 +50,8 @@ class FighterService {
         return item;
     }
 
-    search(search){
+    search(search)
+    {
         const item = FighterRepository.getOne(search);
         if(!item)
         {

@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const FightService = require('../services/fightService');
 const { responseMiddleware } = require('../middlewares/response.middleware');
-const { createFightValid } = require('../repositories/fightRepository');
+const {createFightValid} = require('../middlewares/fight.validation.middleware');
 
 const router = Router();
 
