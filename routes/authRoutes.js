@@ -5,9 +5,20 @@ const { responseMiddleware } = require('../middlewares/response.middleware');
 const router = Router();
 
 router.post('/login', (req, res, next) => {
-    try {
-        // TODO: Implement login action (get the user if it exist with entered credentials)
-        res.data = data;
+    try
+    {
+        const userData = req.body;
+        const user = AuthService.login(userData)
+        if (!user)
+        {
+            res.status(404);
+            throw new Error('User was not found')
+        }
+        if(user.password !== req.body.password){
+            res.status(400)
+            throw new Error('incorrect password')
+        }
+        res.data = user;
     } catch (err) {
         res.err = err;
     } finally {
