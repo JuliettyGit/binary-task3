@@ -16,7 +16,7 @@ router.post('/login', (req, res, next) => {
         }
         if(user.password !== req.body.password){
             res.status(400)
-            throw new Error('incorrect password')
+            throw new Error('Incorrect password')
         }
         res.data = user;
     } catch (err) {
